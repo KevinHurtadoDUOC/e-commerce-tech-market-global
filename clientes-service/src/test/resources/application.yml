@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: clientes-service
+
+eureka:
+  client:
+    enabled: false

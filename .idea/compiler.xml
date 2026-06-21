@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="api-gateway" />
+        <module name="eureka-service" />
+      </profile>
+      <profile name="Annotation profile for ventas-service" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
+        </processorPath>
+        <module name="sucursales-service" />
+        <module name="login-service" />
+        <module name="ventas-service" />
+        <module name="proveedores-service" />
+        <module name="clientes-service" />
+        <module name="productos-service" />
+        <module name="vendedores-service" />
+      </profile>
+      <profile name="Annotation profile for bodegas-service" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
+        </processorPath>
+        <module name="bodegas-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="proveedor-service" target="25" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="api-gateway" options="-parameters" />
+      <module name="bodegas-service" options="-parameters" />
+      <module name="clientes-service" options="-parameters" />
+      <module name="eureka-service" options="-parameters" />
+      <module name="login-service" options="-parameters" />
+      <module name="productos-service" options="-parameters" />
+      <module name="proveedor-service" options="-parameters" />
+      <module name="proveedores-service" options="-parameters" />
+      <module name="sucursales-service" options="-parameters" />
+      <module name="vendedores-service" options="-parameters" />
+      <module name="ventas-service" options="-parameters" />
+    </option>
+  </component>
+</project>

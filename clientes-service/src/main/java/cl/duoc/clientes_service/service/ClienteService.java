@@ -1,6 +1,7 @@
 package cl.duoc.clientes_service.service;
 
 import cl.duoc.clientes_service.dto.ClienteDTO;
+import cl.duoc.clientes_service.exception.DvIncorrectoException;
 import cl.duoc.clientes_service.mapper.ClienteMapper;
 import cl.duoc.clientes_service.model.Cliente;
 import cl.duoc.clientes_service.repository.ClienteRepository;
@@ -18,19 +19,24 @@ public class ClienteService {
     @Autowired
     private ClienteRepository clienteRepository;
 
-    public List<Cliente> findAll(){
+    public List<Cliente> findAll() {
         return clienteRepository.findAll();
     }
 
-    public Cliente findById(Long id){
+    public Cliente findById(Long id) {
         return clienteRepository.findById(id).orElse(null);
     }
 
-    public Cliente save(Cliente cliente){
+    public Cliente save(Cliente cliente) {
+
+        if (cliente.getDvCliente() == null || !cliente.getDvCliente().matches("^[0-9kK]$")) {
+            throw new DvIncorrectoException("El campo dv solo puede almacenar valores entre 0-9 y k-K");
+        }
+
         return clienteRepository.save(cliente);
     }
 
-    public Cliente update(Long id, Cliente cliente){
+    public Cliente update(Long id, Cliente cliente) {
         Cliente clienteActualizar = clienteRepository.findById(id).orElse(null);
         if (clienteActualizar == null) return null;
         clienteActualizar.setDvCliente(cliente.getDvCliente());
@@ -41,15 +47,15 @@ public class ClienteService {
         return clienteRepository.save(clienteActualizar);
     }
 
-    public void delete(Long id){
+    public void delete(Long id) {
         clienteRepository.deleteById(id);
     }
 
-    public ClienteDTO findDTO(Long id){
+    public ClienteDTO findDTO(Long id) {
         return clienteMapper.toDTO(findById(id));
     }
 
-    public List<ClienteDTO> findDTOList(){
+    public List<ClienteDTO> findDTOList() {
         return clienteMapper.toDTOlist(findAll());
     }
 }

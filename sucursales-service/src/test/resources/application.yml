@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: sucursales-service
+
+eureka:
+  client:
+    enabled: false

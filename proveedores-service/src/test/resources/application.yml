@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: proveedores-service
+
+eureka:
+  client:
+    enabled: false
