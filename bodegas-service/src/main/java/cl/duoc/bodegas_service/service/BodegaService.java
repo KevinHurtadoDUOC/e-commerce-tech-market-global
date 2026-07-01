@@ -27,6 +27,7 @@ public class BodegaService {
     public Bodega save(Bodega bodega){
         return bodegaRepository.save(bodega);
     }
+
     public Bodega update(Long id, Bodega bodega){
 
         Bodega bodegaActualizar = bodegaRepository.findById(id).orElse(null);

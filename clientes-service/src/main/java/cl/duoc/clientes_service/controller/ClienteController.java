@@ -5,6 +5,8 @@ import cl.duoc.clientes_service.exception.ErrorResponse;
 import cl.duoc.clientes_service.model.Cliente;
 import cl.duoc.clientes_service.service.ClienteService;
 import io.swagger.v3.oas.annotations.*;
+import io.swagger.v3.oas.annotations.info.Contact;
+import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -16,10 +18,23 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@OpenAPIDefinition(
+        info = @Info(
+                title = "API de Bodegas",
+                version = "1.0",
+                description = "Operaciones disponibles para la gestión de bodegas",
+                contact = @Contact(
+                        name = "Sofia Muñoz",
+                        email = "tu.correo@duocuc.cl"
+                )
+        )
+)
+
 @Tag(
         name = "Clientes",
         description = "Operaciones disponibles para la gestión de clientes"
 )
+@CrossOrigin(origins = "*", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 @RestController
 @RequestMapping("api/v1/clientes")
 public class ClienteController {

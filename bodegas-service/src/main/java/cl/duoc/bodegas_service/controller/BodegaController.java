@@ -5,6 +5,8 @@ import cl.duoc.bodegas_service.exception.ErrorResponse;
 import cl.duoc.bodegas_service.model.Bodega;
 import cl.duoc.bodegas_service.service.BodegaService;
 import io.swagger.v3.oas.annotations.*;
+import io.swagger.v3.oas.annotations.info.Contact;
+import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -18,10 +20,24 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
+@OpenAPIDefinition(
+        info = @Info(
+                title = "API de Bodegas",
+                version = "1.0",
+                description = "Operaciones disponibles para la gestión de bodegas",
+                contact = @Contact(
+                        name = "Kevin Hurtado",
+                        email = "tu.correo@duocuc.cl"
+                )
+        )
+)
+
 @Tag(
         name = "Bodegas",
         description = "Operaciones disponibles para la gestión de bodegas"
 )
+@CrossOrigin(origins = "*", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 @RestController
 @RequestMapping("api/v1/bodegas")
 public class BodegaController {
